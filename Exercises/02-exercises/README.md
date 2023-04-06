@@ -13,3 +13,8 @@
 5. >
 
 - Demonstre estes valores.
+
+# Exercício #3
+
+1. Crie constantes tipadas e não-tipadas.
+2. Demonstre seus valores.
