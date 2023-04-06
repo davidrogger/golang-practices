@@ -26,3 +26,8 @@
   2. Demonstre este valor em decimal, binário e hexadecimal
   3. Desloque os bits dessa variável 1 para a esquerda, e atribua o resultado a outra variável
   4. Demonstre esta outra variável em decimal, binário e hexadecimal
+
+# Exercício #5
+
+- Crie uma variável de tipo string utilizando uma raw string literal.
+- Demonstre-a.
