@@ -35,3 +35,16 @@ Utilizando a solução do exercício anterior:
 - Na função main:
   - Use fmt.Sprintf para atribuir todos esses valores a uma única variável. Faça essa atribuição de tipo string a uma variável de nome "s" utilizando o operador curto de declaração.
   - Demonstre a variável "s".
+
+# Exercício #4
+
+1. Crie um tipo. O tipo subjacente deve ser int.
+2. Crie uma variável para este tipo, com o identificador "x", utilizando a palavra-chave var.
+
+- Na função main:
+  - Demonstre o valor da variável "x"
+  - Demonstre o tipo da variável "x"
+  - Atribua 42 à variável "x" utilizando o operador "="
+  - Demonstre o valor da variável "x"
+
+> Para os aventureiros: https://golang.org/ref/spec#Types
