@@ -31,3 +31,8 @@
 
 - Crie uma variável de tipo string utilizando uma raw string literal.
 - Demonstre-a.
+
+# Exercício #6
+
+- Utilizando iota, crie 4 constantes cujos valores sejam os próximos 4 anos.
+- Demonstre estes valores.
