@@ -23,3 +23,15 @@ Use var para declarar três variáveis. Elas devem ter package-level scope. Não
 Na função main:
 - Demonstre os valores de cada identificador
 - O compilador atribuiu valores para essas variáveis. Como esses valores se chamam? R: *valor zero*/*zero value*
+
+# Exercício #3
+
+Utilizando a solução do exercício anterior:
+1. Em package-level scope, atribua os seguintes valores às variáveis:
+2. para "x" atribua 42
+3. para "y" atribua "James Bond"
+4. para "z" atribua true
+
+- Na função main:
+  - Use fmt.Sprintf para atribuir todos esses valores a uma única variável. Faça essa atribuição de tipo string a uma variável de nome "s" utilizando o operador curto de declaração.
+  - Demonstre a variável "s".
