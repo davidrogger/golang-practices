@@ -36,9 +36,9 @@ O conceito de interface em Go oferece uma abordagem diferente que acredita ser m
 
 # Links uteis
 
-[Documentação Go](https://go.dev/doc/)
-[Go online Playground](https://go.dev/play/)
-[Grupo de Estudos](https://github.com/crgimenes/estudos)
-[]()
+- [Documentação Go](https://go.dev/doc/)
+- [Go online Playground](https://go.dev/play/)
+- [Grupo de Estudos](https://github.com/crgimenes/estudos)
+- []()
 
 *All tools successfully installed. You are ready to Go. :)*
