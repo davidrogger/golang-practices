@@ -51,6 +51,18 @@ func main() {
 
 # Tipos
 
+## Tipo booleano
+
+- É um tipo binário, que só contem dois valores, true ou false.
+- Usados em lógicas condicionais, declarações switch, if, fluxo de controle, etc.
+
+## Tipo Númericos
+
+## Tipo string
+
+
+## Declaração de tipos
+
 Ao declarar um  variavel, a tipagem em go, ocorre por inferência caso não seja uma declaração explicita.
 Tipagens em go, são estáticas, após uma variavel ter seu tipo declarado, ele não pode ser alterado.
 Para declarar tipos de forma explicita:
@@ -107,7 +119,6 @@ var a = hotdog(b)
 ```
 
 É possivel converter o valor de b para hotdog, ja que ele é um int.
-
 
 
 # Links uteis
