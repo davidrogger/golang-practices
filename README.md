@@ -62,6 +62,27 @@ Os tipos nativos como bloco básicos são; int, string e bool.
 Os tipos compostos, são tipos compostos pelos primitivos; slice, array, struct, map.
 A criação de estrutura de tipos composto chama-se composição.
 
+# Valor zero
+
+Valor zero é o valor inicial de uma declaração, quando não atribuido um valor;
+
+```
+var numeroInteiro int
+var numeroFlutuant float32
+var frase string
+var resposta bool
+```
+
+Quando acessando essas variaveis, seus valores serão o valor zero, que por padrão;
+
+1. int = 0
+1. float32 = 0
+2. string = É uma string vazia ""
+3. bool = false
+4. O valor zero de funções, pointers, interface, slices, channels, maps são nil (vazio)
+
+
+
 
 
 
