@@ -172,6 +172,18 @@ fmt.Println(b) // 200 1100100<<0
 
 Ação acima foi deslocando os valores em binário para esquerda 1101100 e adicionando um 0 a direita.
 
+# Fluxo de controle
+
+É como os computadores lêem o código que foi implementado, assim como alguns países, a leitura, acontece da esquerda para direita de cima para baixo, em alguns lugares, a leitura pode ser de cima para baixo da direita para esquerda.
+Os computadores lêem os códigos de cima para baixo da esquerda para direita.
+Além do controle sequencial, há duas declarações que podem afetar como o computador lê o código:
+
+- Fluxo de controle de repetição, o computador repete a leitura de um mesmo código de uma maneira específica, conhecido como fluxo de controle iterativo.
+- Fluxo de controle condicional, ou controle de seleção. O computador encontra uma condição e por meio de uma declação if ou switch, toma um curso ou outro com base na condição.
+
+Totalizando três tipos de fluxo: sequencial, repetição e condicional.
+
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
