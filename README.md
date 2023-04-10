@@ -183,6 +183,32 @@ Além do controle sequencial, há duas declarações que podem afetar como o com
 
 Totalizando três tipos de fluxo: sequencial, repetição e condicional.
 
+# FOR
+
+Em go, não temos o loop while, somente o FOR para criar loops;
+
+Sintaxe;
+
+```
+package main
+
+import "fmt"
+
+func main() {
+	for i := 0; i < 10; i += 1 {
+		fmt.Println(i)
+	}
+}
+```
+
+Imprimindo os valores de 0 à 9
+
+## continue e break
+
+Existem duas formas de parar uma iteração durante um for, usando break a iteração é parada por completo, parando toda execução, agora usando continue, ele apenas para aquela iteração/ciclo do loop.
+
+
+
 
 # Links uteis
 
