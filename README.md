@@ -81,7 +81,22 @@ Quando acessando essas variaveis, seus valores serão o valor zero, que por padr
 3. bool = false
 4. O valor zero de funções, pointers, interface, slices, channels, maps são nil (vazio)
 
+# Criando tipos
 
+"Type is life", grande parte dos aspectos mais avançados de Go dependem quase que exclusivamente de tipos.
+
+```
+type hotdog int
+var a hotdog = 1
+```
+
+Na criação desse tipo hotdog para exemplo, foi definido seu subconjunto como inteiro, logo ele somente aceitará a declaração com elementos do tipo inteiro. Porém ele não pode receber o valor de outra variavel que é do tipo int;
+```
+var b int = 1
+var a = b
+```
+
+Ele não aceita esse tipo de declaração, pois ele espera o tipo hotdog, não inteiro por mais que o hotdog seja int.
 
 
 
