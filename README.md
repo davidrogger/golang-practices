@@ -49,6 +49,22 @@ func main() {
 }
 ```
 
+# Tipos
+
+Ao declarar um  variavel, a tipagem em go, ocorre por inferência caso não seja uma declaração explicita.
+Tipagens em go, são estáticas, após uma variavel ter seu tipo declarado, ele não pode ser alterado.
+Para declarar tipos de forma explicita:
+
+1. `var nome string = "isso é uma string"`
+2. `var numero int = 1`
+
+Os tipos nativos como bloco básicos são; int, string e bool.
+Os tipos compostos, são tipos compostos pelos primitivos; slice, array, struct, map.
+A criação de estrutura de tipos composto chama-se composição.
+
+
+
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
