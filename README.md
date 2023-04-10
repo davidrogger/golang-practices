@@ -207,7 +207,51 @@ Imprimindo os valores de 0 à 9
 
 Existem duas formas de parar uma iteração durante um for, usando break a iteração é parada por completo, parando toda execução, agora usando continue, ele apenas para aquela iteração/ciclo do loop.
 
+# Switch
 
+Usado para declaração de condicionais;
+
+Possiveis sintaxes;
+
+Usando condições de comparação que em caso de verdadeiras execução a linha de case.
+```
+x := 55
+switch true {
+  case x < 55:
+    fmt.Println("Menor que 55")
+  case x > 55:
+    fmt.Println("Maior que 55")
+  case x == 55:
+    fmt.Println("É igual a 55")
+}
+```
+
+Condições de igualdade, caso a variavel declara seja igual a condição do case.
+```
+x := "Jonas"
+switch x {
+  case "maria":
+    fmt.Println("É a Maria")
+  case "Juka":
+    fmt.Println("É o Juka")
+  case "Jonas":
+    fmt.Println("É o Jonas")
+}
+```
+
+Multiplas opções nos cases para execução.
+
+```
+x := "Jonas"
+switch x {
+  case "maria", "Juka":
+    fmt.Println("Membro da Equipe Alpha")
+  case "Juka", "Jonas":
+    fmt.Println("Membro da Equipe Bravo")
+  default:
+    fmt.Println("Não pertence a nenhuma equipe")
+}
+```
 
 
 # Links uteis
