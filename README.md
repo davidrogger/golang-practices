@@ -123,6 +123,11 @@ var a = hotdog(b)
 
 É possivel converter o valor de b para hotdog, ja que ele é um int.
 
+# Sistemas númericos
+
+- Base10: decimal, 0~9
+- Base2: binário, 0~1
+- Base16: hexadecimal, 0~f
 
 # Links uteis
 
