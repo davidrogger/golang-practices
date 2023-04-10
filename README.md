@@ -98,6 +98,15 @@ var a = b
 
 Ele não aceita esse tipo de declaração, pois ele espera o tipo hotdog, não inteiro por mais que o hotdog seja int.
 
+# Conversão, não coerção
+
+Em Go não se é usado os termos, coerção ou cast e sim Conversão, usando o exemplo anterior;
+```
+var b int = 1
+var a = hotdog(b)
+```
+
+É possivel converter o valor de b para hotdog, ja que ele é um int.
 
 
 
