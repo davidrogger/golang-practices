@@ -62,6 +62,7 @@ Tipos númericos são divididos em duas categorias os números inteiros(int) e o
 Para mistura-los na declaração é necessário usar conversão.
 ## Tipo string
 
+São sequencias de bytes Imutáveis, slice of bytes, uma cadeia de caracteres.
 
 ## Declaração de tipos
 
