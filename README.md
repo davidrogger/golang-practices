@@ -56,8 +56,10 @@ func main() {
 - É um tipo binário, que só contem dois valores, true ou false.
 - Usados em lógicas condicionais, declarações switch, if, fluxo de controle, etc.
 
-## Tipo Númericos
+## Tipos Númericos
 
+Tipos númericos são divididos em duas categorias os números inteiros(int) e os números com ponto flutuantes(float64) que são os números com ponto(números racionais ou reais).
+Para mistura-los na declaração é necessário usar conversão.
 ## Tipo string
 
 
