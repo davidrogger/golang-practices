@@ -159,7 +159,18 @@ func main() {
 }
 ```
 
+# Deslocamento de bits
 
+Quando deslocamos digitos binários para a esquerda ou direita;
+
+```
+a := 100 // 1100100
+b := a << 1
+
+fmt.Println(b) // 200 1100100<<0
+```
+
+Ação acima foi deslocando os valores em binário para esquerda 1101100 e adicionando um 0 a direita.
 
 # Links uteis
 
