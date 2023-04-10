@@ -138,6 +138,29 @@ const hello = "Hello"
 const world string = "World"
 ```
 
+# Iota
+
+Em uma declaração de constantes, o identificar iota representa uma sequencia de números;
+
+```
+package main
+
+import "fmt"
+
+func main() {
+  const (
+    first = iota
+    second
+    third
+    fourth
+  )
+  fmt.Println(first, second, third, fourth) // 0, 1, 2, 3
+
+}
+```
+
+
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
