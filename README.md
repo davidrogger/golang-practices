@@ -129,6 +129,15 @@ var a = hotdog(b)
 - Base2: binário, 0~1
 - Base16: hexadecimal, 0~f
 
+# Constantes
+
+Assim como as var, podem ter seus tipos declarados ou recebem seu tipo por inferência, mas somente quando a constante é usada, com var seu tipo é inferido no momento da sua declaração.
+
+```
+const hello = "Hello"
+const world string = "World"
+```
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
