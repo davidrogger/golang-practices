@@ -1,5 +1,7 @@
 // Crie um loop utilizando a sintaxe for condition
-// Utilize para demonstrar os anos desde que você nasceu
+// Utilize para demonstrar os anos desde que você nasceu até uma data posterior
+// Exemplo
+// nasci no ano de 1988, até o ano de 2100
 
 package main
 
