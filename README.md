@@ -371,6 +371,27 @@ Quando usando das fatias de fatias em slice, deve-se tomar cuidado na seguinte c
 
 Ao tentar reaproveitar o array anterior, por de baixo dos panos, a linguagem faz um embaralhamento da lista, fazendo a terceira posição se tornar o número 5.
 
+
+# Maps
+
+É um composição de tipos que usa de chave e valor;
+
+```
+	users := map[string]int{}
+	users["jonas"] = 10
+	fmt.Println(users) // map[jonas:10]
+```
+
+Chaves jonas possui o valor 10. Sendo possivel atualizar o valor, da mesma forma que foi inserido o valor de jonas. E também para consultar o valor especifico da chave, basta acessar o map com colchetes e a chave que deseja o valor.
+
+Quando acessando um valor inexistente, o Go retorna o valor 0, como fica sublime se é um valor ou se não existe um valor, existe o método comma ok, que consiste em um segundo valor quando acessando o valor de um mapa;
+
+```
+user, ok := users["mary"]
+```
+
+A variavel ok, caso não existe o usuário que deseja consultar no map de users, deve ser false.
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
