@@ -339,6 +339,20 @@ Slices são feitos de arrays, são dinâmicas, e podem mudar de tamanho, mas sem
 
 No exemplo é determinado que é um slice de numeros inteiros []int, com valor inicial de 5, assim como o array, ja deixa reservado aquele espaço, seguindo da capacidade máxima de elementos que o slice pode armazenar sem alocar mais espaço na memória e é possivel realizar o append de novos elementos, sempre que ele atinge o tamanho limite, ele dobra o tamanho, para continuar alimentando de forma mais performática, mas esse realocamento do array, pode ser um operação custosa em termos de tempo e recurso também.
 
+# Slices multidimensionais
+
+É a composição de slices com slices de um determinado tipo, assim como uma matriz;
+
+```
+	matriz := [][]string{
+		[]string{"linha1-a", "linha1-b", "linha1-c"},
+		[]string{"linha2-a", "linha2-b", "linha2-c"},
+		[]string{"linha3-a", "linha3-b", "linha3-c"},
+	}
+
+	fmt.Println(matrix[1][1]) // linha2-b
+```
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
