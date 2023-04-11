@@ -270,7 +270,7 @@ Neste caso quando entrar no primeiro case ele mostra o conteudo do case mais o c
 
 # Array
 
-É usado em go quando é necessário uma melhor performance comparado ao slice, pois nele é necessário, definir além do tipo e seu tamanho, no momento de declaração;
+É usado em go quando é necessário uma melhor performance comparado ao slice, pois nele é necessário, definir além do tipo um tamanho fixo, no momento da declaração, tirando a possibilidade de adicionar mais elementos além do limite determinado;
 
 ```
 var x [5]int // [0, 0, 0, 0, 0]
@@ -278,6 +278,17 @@ var x [5]int // [0, 0, 0, 0, 0]
 x[0] = 10 //  [10, 0, 0, 0, 0]
 ```
 
+# Slices
+
+É o mais usado quando lidando com lista por ser mais flexivel com relação ao seu tamanho. Sendo possivel adicionar mais elementos usando o append
+
+
+```
+	array := [5]int{5, 3, 5} // [5, 3, 5, 0, 0]
+	slice := []int{5, 3, 5} // [5, 3, 5]
+  
+	slice = append(slice, 10) // [5, 3, 5, 10]
+```
 
 # Links uteis
 
