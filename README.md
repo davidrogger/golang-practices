@@ -290,6 +290,18 @@ x[0] = 10 //  [10, 0, 0, 0, 0]
 	slice = append(slice, 10) // [5, 3, 5, 10]
 ```
 
+# Range
+
+Usado em lopp for, quando percorrendo uma lista (array, slice);
+
+```
+	fruits := []string{"banana", "melon", "strawberry"}
+
+	for index, fruit := range fruits {
+		fmt.Printf("A fruta na posição %v é uma %v\n", index, fruit)
+	}
+```
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
