@@ -11,6 +11,8 @@ func main() {
 		fmt.Println("Número maior que 20")
 	case numb > 10:
 		fmt.Println("Número maior que 10")
+	case numb > 30:
+		fmt.Println("Número maior que 30")
 	default:
 		fmt.Println("Menor que 20 e 10")
 	}

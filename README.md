@@ -253,6 +253,20 @@ switch x {
 }
 ```
 
+Switch do go, possui fallthrough que após encontrar o bloco apresenta o proximo bloco também, após o bloco encontrado.
+
+```
+    case i < 10:
+        fmt.Println("i is less than 10")
+        fallthrough
+    case i < 50:
+        fmt.Println("i is less than 50")
+    case i < 100:
+        fmt.Println("i is less than 100")
+    }
+```
+
+Neste caso quando entrar no primeiro case ele mostra o conteudo do case mais o conteudo do proximo case.
 
 # Links uteis
 
