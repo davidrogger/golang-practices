@@ -353,6 +353,24 @@ No exemplo é determinado que é um slice de numeros inteiros []int, com valor i
 	fmt.Println(matrix[1][1]) // linha2-b
 ```
 
+# Reutilizando slice
+
+Quando usando das fatias de fatias em slice, deve-se tomar cuidado na seguinte cituação;
+
+```
+	primeiroslice := []int{1, 2, 3, 4, 5}
+	
+	fmt.Println(primeiroslice)
+	
+	segundoslice := append(primeiroslice[:2], primeiroslice[4:]...)
+
+	fmt.Println(segundoslice)
+
+	fmt.Println(primeiroslice) // [1, 2, 5, 4, 5]
+```
+
+Ao tentar reaproveitar o array anterior, por de baixo dos panos, a linguagem faz um embaralhamento da lista, fazendo a terceira posição se tornar o número 5.
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
