@@ -302,6 +302,30 @@ Usado em lopp for, quando percorrendo uma lista (array, slice);
 	}
 ```
 
+# Slice of Slices
+
+Criando outro slice, apartir de um slice, removendo informações;
+Deve-se indicar em qual indice a nova lista começa e, qual é a ultima posição da nova lista (o ultimo elemento não fará parte da nova lista)
+
+```
+	fruits := []string{"banana", "melon", "strawberry"}
+
+	fruit := fruits[1:2] // ["melon"]
+
+```
+
+Também é possivel usar o append, para unir dois slices:
+
+```
+	fruits1 := []string{"banana", "melon", "strawberry"}
+	fruits2 := []string{"avocado", "pinnaple", "orange"}
+
+	fruits3 := append(fruits1[:1], fruits2[1:2]...)
+
+	fmt.Println(fruits3) // ["banana", "pinnale"]
+```
+
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
