@@ -325,6 +325,19 @@ Também é possivel usar o append, para unir dois slices:
 	fmt.Println(fruits3) // ["banana", "pinnale"]
 ```
 
+# Slice: make
+
+Slices são feitos de arrays, são dinâmicas, e podem mudar de tamanho, mas sempre que isso acontece, um novo array é criado gerando um custo computacional adicionar, para otimizar isso, é usado o make, onde é determinado, o tipo, seu tamanho e capacidade;
+
+```
+	fruits := make([]int, 5, 10)
+	fmt.Println(fruits) // [0, 0, 0, 0, 0]
+  	fruits = append(fruits, 6, 7, 8, 9, 10, 11, 12)
+
+	fmt.Println(fruits) // [0, 0, 0, 0, 0, 6, 7, 8, 9, 10, 11, 12]
+```
+
+No exemplo é determinado que é um slice de numeros inteiros []int, com valor inicial de 5, assim como o array, ja deixa reservado aquele espaço, seguindo da capacidade máxima de elementos que o slice pode armazenar sem alocar mais espaço na memória e é possivel realizar o append de novos elementos, sempre que ele atinge o tamanho limite, ele dobra o tamanho, para continuar alimentando de forma mais performática, mas esse realocamento do array, pode ser um operação custosa em termos de tempo e recurso também.
 
 # Links uteis
 
