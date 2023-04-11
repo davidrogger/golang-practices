@@ -268,6 +268,17 @@ Switch do go, possui fallthrough que após encontrar o bloco apresenta o proximo
 
 Neste caso quando entrar no primeiro case ele mostra o conteudo do case mais o conteudo do proximo case.
 
+# Array
+
+É usado em go quando é necessário uma melhor performance comparado ao slice, pois nele é necessário, definir além do tipo e seu tamanho, no momento de declaração;
+
+```
+var x [5]int // [0, 0, 0, 0, 0]
+
+x[0] = 10 //  [10, 0, 0, 0, 0]
+```
+
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
