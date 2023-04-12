@@ -411,6 +411,15 @@ Assim como em uma lista de array ou slice, o uso do range em um Map, é para per
 
 Range em Map, returna dois valores, sendo o primeiro o nome da chave, e o segundo o valor da chave.
 
+## Map: Delete
+
+Para deletar uma chave de um map, basta usando o metodo `delete`;
+
+```
+delete(usersMap, "modiz")
+```
+
+Dessa forma a chave e todo conteudo será eliminado do map usersMap.
 
 # Links uteis
 
