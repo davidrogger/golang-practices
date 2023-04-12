@@ -392,6 +392,26 @@ user, ok := users["mary"]
 
 A variavel ok, caso não existe o usuário que deseja consultar no map de users, deve ser false.
 
+## Map: range
+
+Assim como em uma lista de array ou slice, o uso do range em um Map, é para percorrer as chaves e valores contidos no mapa;
+
+```
+	usersMap := map[string]string{
+		"jonas": "always here",
+		"mad":   "new here",
+		"modiz": "dirty",
+		"biel":  "is biel",
+	}
+
+	for key, value := range usersMap {
+		fmt.Println(key, value)
+	}
+```
+
+Range em Map, returna dois valores, sendo o primeiro o nome da chave, e o segundo o valor da chave.
+
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
