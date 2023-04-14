@@ -477,6 +477,17 @@ Pode-se declarar a de forma menos esplicita a estutura quando criando ela;
 helpdesk := job{user{"jonas", "doe", 33}, "Remote acess"}
 ```
 
+# Structers anonimos
+
+São estruturas temporarias criadas apenas no momento da declaração;
+
+```
+u := struct {
+	name:	string
+	age:	int
+}{ "jonas", 33 }
+```
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
