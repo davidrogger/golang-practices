@@ -429,7 +429,7 @@ Dessa forma a chave e todo conteudo será eliminado do map usersMap.
 type user struct {
 	name 			string
 	surname		string
-	age				number
+	age				int
 }
 
 jonas := user {
@@ -439,6 +439,43 @@ jonas := user {
 }
 ```
 
+# Struct: nested
+
+É quando temos um structer dentro de outro;
+
+```
+type job struct {
+	user	user
+	task	string
+}
+
+type user struct {
+	name 			string
+	surname		string
+	age				int
+}
+
+helpdesk := job{
+	user: user{
+		name: "Jonas",
+		surname: "Doe",
+		age: 33,
+	},
+	task: "Remote Acess"
+}
+```
+Para acessar os valores de forma especifica, pode-se usar dot notation;
+
+```
+helpdesk.name // jonas
+```
+Nota-se que não é necessário acessar o user.name, pois ele tem um funcionamento chamado embeded field, onde você pode apontar diretamente para chave interna de um elemento, desde que ele seja único.
+
+Pode-se declarar a de forma menos esplicita a estutura quando criando ela;
+
+```
+helpdesk := job{user{"jonas", "doe", 33}, "Remote acess"}
+```
 
 # Links uteis
 
