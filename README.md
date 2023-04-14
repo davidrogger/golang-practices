@@ -488,6 +488,19 @@ u := struct {
 }{ "jonas", 33 }
 ```
 
+# Funções
+
+É uma forma de segmentar funcionalidades de abstrair comportamentes de forma mais isolada, sintaxe;
+
+```
+func (receiver) nome(argumento tipo) (tipo de retorno) { codigo }
+```
+
+Declaração de uma função em Go começa com a palavra reservada `func`, receiver terá um tópico mais especifico sobre, e ele pode ser omitido em sua declaração, seguindo de um nome, com os argumentos dos parametros que serão necessários para função, e a declaração do tipo do dado que a função vai retornar, com o código propriamente digo embolta de chaves {}.
+
+Os argumentos em Go, podem ser variadíco, que quer dizer, que seu argumento com a representação de 3 pontos "...", pode receber uma quantidade indeterminada de argumentos, consequentemente em forma de slice, nota que caso tenha mais de um argumento,  variadíco, deve ser o ultimo argumento declarado na função.
+
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
