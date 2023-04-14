@@ -505,6 +505,25 @@ Os argumentos em Go, podem ser variadíco, que quer dizer, que seu argumento com
 É uma declaração definindo que ele determinado conteudo deve ser executado somente no final da função usada.
 Quando usando multiplos defer, sempre o primeiro defer vai ser o ultimo, seguindo a ordem como se fosse uma pilha de roupas.
 
+# Métodos
+
+A declaração de um método em uma função é usada para decorar um tipo especificado em seu receiver;
+
+```
+type user struct {
+	name string
+}
+
+func (user user) printName() {
+	fmt.Println(user.name)
+}
+
+jonas := user{ "jonas" }
+jonas.printName()
+```
+
+Agora todo tipo user, possui o método printName, quando invocado.
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
