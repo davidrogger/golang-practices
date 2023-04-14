@@ -421,6 +421,25 @@ delete(usersMap, "modiz")
 
 Dessa forma a chave e todo conteudo será eliminado do map usersMap.
 
+# Structs
+
+É um tipo de da dado composto que permite armazenar valores de tipos diferentes;
+
+```
+type user struct {
+	name 			string
+	surname		string
+	age				number
+}
+
+jonas := user {
+	name: "Jonas",
+	surname: "Doe",
+	age: 33,
+}
+```
+
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
