@@ -500,6 +500,10 @@ Declaração de uma função em Go começa com a palavra reservada `func`, recei
 
 Os argumentos em Go, podem ser variadíco, que quer dizer, que seu argumento com a representação de 3 pontos "...", pode receber uma quantidade indeterminada de argumentos, consequentemente em forma de slice, nota que caso tenha mais de um argumento,  variadíco, deve ser o ultimo argumento declarado na função.
 
+# Defer
+
+É uma declaração definindo que ele determinado conteudo deve ser executado somente no final da função usada.
+Quando usando multiplos defer, sempre o primeiro defer vai ser o ultimo, seguindo a ordem como se fosse uma pilha de roupas.
 
 # Links uteis
 
