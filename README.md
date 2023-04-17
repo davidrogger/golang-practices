@@ -514,8 +514,8 @@ type user struct {
 	name string
 }
 
-func (user user) printName() {
-	fmt.Println(user.name)
+func (u user) printName() {
+	fmt.Println(u.name)
 }
 
 jonas := user{ "jonas" }
@@ -523,6 +523,77 @@ jonas.printName()
 ```
 
 Agora todo tipo user, possui o método printName, quando invocado.
+
+# Interfaces
+
+São coleções nomeadas ou assinaturas de métodos;
+[Exemplo](https://gobyexample.com/interfaces);
+
+Uma interface básica com formas geométricas, recebendo os métodos dos tipos:
+```
+package main 
+
+import "fmt"
+
+type geometry interface {
+	area() float64
+	perim() float64
+}
+```
+
+Implementando os métodos nos tipos rect e circle;
+
+```
+// Dois tipos para forma geografica, retângulo, recebe as medidas de largura e altura
+type rect struct {
+	width, height float64
+}
+
+// e circulo apenas o raio.
+type circle struct {
+	radius float64
+}
+
+// Método atrelado ao tipo rect onde retorna a area do retângulo.
+func (r rect) area() float64 {
+	return r.width * r.height
+}
+
+// Método atrelado ao retangulo, onde calula o perimetro do retângulo
+func (r rect) perim() float64 {
+	return 2*r.width + 2*r.height
+}
+
+
+// Método atrelado ao tipo do circulo, onde retorna a area do circulo
+func (c circle) area() float64 {
+	return math.Pi * c.radius * c.radius
+}
+
+// Método atrelado ao tipo do circulo, onde retorna o perimetro do circulo
+func (c circle) perim() float64 {
+	return 2 * math.Pi * c.radius
+}
+
+// função measure que recebe um argumento do tipo geometry que é a interface
+// A interface geometre possui os métodos area e perim, então nessa função
+// é imprimido o resultado do tipo geometry area e perim.
+func measure(g geometry) {
+	fmt.Println(g)
+	fmt.Println(g.area())
+	fmt.Println(g.perim())
+}
+
+func main() {
+	r := rect{ width: 3, height: 4 }
+	c := circle{ radius: 5 }
+
+	measure(r)
+	measure(c)
+}
+```
+
+Dessa forma fica mais simples criar funcionalidades que sofrem polimorfismo com base em seu tipo usando Go, por de baixo dos panos, é como se tivesse uma condicional apontando que determinado tipo, tem determino comportamento.
 
 # Links uteis
 
