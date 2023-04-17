@@ -595,6 +595,20 @@ func main() {
 
 Dessa forma fica mais simples criar funcionalidades que sofrem polimorfismo com base em seu tipo usando Go, por de baixo dos panos, é como se tivesse uma condicional apontando que determinado tipo, tem determino comportamento.
 
+# Funções anônimas
+
+Normalmente um função descartavel e temporaria;
+
+```
+func(x int) {
+	fmt.Println(x, "vezes 15 é:")
+	fmt.Println(x * 15)
+}(10)
+// 150
+```
+
+Nota-se após invocar o func, não foi declarado seu nome, e após fechar as chaves {} foi passado o parametro para o argumento da função.
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
