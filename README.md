@@ -609,6 +609,35 @@ func(x int) {
 
 Nota-se após invocar o func, não foi declarado seu nome, e após fechar as chaves {} foi passado o parametro para o argumento da função.
 
+# Funções como expressão
+
+Em go é possivel também passar a função como uma expressão para variaveis;
+
+Funções normais;
+
+```
+func teste(x int) {
+	fmt.Println(x, "vezes 15 é:")
+	fmt.Println(x * 15)
+}
+
+func main() {
+	x := teste
+
+	x(10)
+}
+```
+
+Ou também anônimas;
+
+```
+y := func(x int) {
+	fmt.Println(x, "vezes 15 é:")
+	fmt.Println(x * 15)
+}
+y(10) // 150
+```
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
