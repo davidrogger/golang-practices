@@ -638,6 +638,31 @@ y := func(x int) {
 y(10) // 150
 ```
 
+# Retornando uma função por outra função
+
+É possivel também retornar outra função quando invocando uma função;
+
+```
+func main() {
+	x := example()
+	y := x(3)
+
+	fmt.Println(y)
+}
+
+func example() func(int) int {
+	return func(i int) int {
+		return i * 10
+	}
+}
+```
+
+Também é possivel passar uma segunda chamada na função, para ja executar a função retornada, e coletar o resultado;
+
+```
+x := example()(3) // 30
+```
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
