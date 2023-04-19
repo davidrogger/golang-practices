@@ -766,6 +766,22 @@ func main() {
 Neste exemplo, um ponto importante usando o json.Marshal é a necessidade do uso das chaves da estrutura em letra maiuscula, pois não é aceito para exportação as chaves minusculas.
 Também em go deve-se tratar os erros, de forma individual, após rodar o Marshal, devemos verificar se há algum erro, que é realizado com o if.
 
+Agora para realizar o contrário, receber um json e converter para uma estrutura de código;
+
+```
+jsonLine := []byte(`{"jonas", "doe", 33}`)
+
+var convertedData pessoa
+
+err := json.Unmarshal(jsonLine, &convertedData)
+if err != nil {
+	fmt.Println("error:", err)
+}
+
+fmt.Println(convertedData.Nome)
+```
+
+jsonLine foi criado apenas para simular uma variavel que contem um json, simulando seu formato de byte, criando uma variavel com a tipagem desejada, usamos o Unmarshal, passando o primeiro parametro como o arquivo de conversão seguindo da localização na memória da variavel onde deve ser salva a conversão seguindo de um tratamento de error.
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
