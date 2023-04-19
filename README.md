@@ -782,6 +782,20 @@ fmt.Println(convertedData.Nome)
 ```
 
 jsonLine foi criado apenas para simular uma variavel que contem um json, simulando seu formato de byte, criando uma variavel com a tipagem desejada, usamos o Unmarshal, passando o primeiro parametro como o arquivo de conversão seguindo da localização na memória da variavel onde deve ser salva a conversão seguindo de um tratamento de error.
+
+# JSON: Tags
+
+Também quando estamos recebendo informações em json é possivel adicionarmos tags, de referencia para os campos do tipo;
+
+```
+type pessoa struct {
+	Nome: 			string	`json:"Nome"`
+	Sobrenome:	string	`json:"SegundoNome"`
+	idade: 			int			`json:"idade"`
+}
+```
+Arquivo recebido em json, tem o campo sobrenome, como SegundoNome, porém queremos que seja SobreNome.(apenas exemplo)
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
