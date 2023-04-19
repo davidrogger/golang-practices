@@ -736,6 +736,35 @@ Para visualizar a localização no endereço da memória de uma variável é usa
 
 O uso do ponteiro ajuda na performance ao executar alguma funcionalidade, pois em Go tudo é pass-by-value, que significa que quando passamos uma variavel para um função como parametro, significa que ele cria uma cópia daquela variavel para tratar ela, gerando um consumo de performance, ja quando usamos o ponteiro indicando diretamente a localização na memória e para o uso do valor, ele deixa de criar uma copia usando o valor dentro do endereço indicado pelo ponteiro.
 
+# JSON
+
+JavaScript Object Notation, é um formato de dados leve e utilizado para troca de informações entre sistemas.
+
+Para converter uma estrutura de dados, para json usando o go, podemos usar o biblioteca Marshal;
+
+```
+import "encoding/json"
+type pessoa struct {
+	Nome: string
+	Sobrenome: string
+	idade: int
+}
+
+func main() {
+	jonas := pessoa{"jonas", "doe", 33}
+
+	j, err := json.Marshal(jonas)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(string(j))
+
+}
+```
+
+Neste exemplo, um ponto importante usando o json.Marshal é a necessidade do uso das chaves da estrutura em letra maiuscula, pois não é aceito para exportação as chaves minusculas.
+Também em go deve-se tratar os erros, de forma individual, após rodar o Marshal, devemos verificar se há algum erro, que é realizado com o if.
 
 # Links uteis
 
