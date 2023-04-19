@@ -728,6 +728,13 @@ func i() func() int {
 
 Neste exemplo é guardado o contexto de x da função, onde ao invarmos ela sequencialmente sua contagem progride, porém quando criarmos uma nova variavel, é criado um nova closure relativa a nova variavel.
 
+# Ponteiros
+
+Todos valores ficam armazenados em memória, e toda localização na memória possui um endereço, o ponteiro é a referencia a esse endereço;
+
+Para visualizar a localização no endereço da memória de uma variável é usado o E comercial `&`, `&x` dessa forma seria apresentado o endereço da memória da variavel x, agora usando o ponteiro `*` ele mostra o valor que está dentro da variavel, `*x`.
+
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
