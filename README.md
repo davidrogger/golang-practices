@@ -734,6 +734,8 @@ Todos valores ficam armazenados em memória, e toda localização na memória po
 
 Para visualizar a localização no endereço da memória de uma variável é usado o E comercial `&`, `&x` dessa forma seria apresentado o endereço da memória da variavel x, agora usando o ponteiro `*` ele mostra o valor que está dentro da variavel, `*x`.
 
+O uso do ponteiro ajuda na performance ao executar alguma funcionalidade, pois em Go tudo é pass-by-value, que significa que quando passamos uma variavel para um função como parametro, significa que ele cria uma cópia daquela variavel para tratar ela, gerando um consumo de performance, ja quando usamos o ponteiro indicando diretamente a localização na memória e para o uso do valor, ele deixa de criar uma copia usando o valor dentro do endereço indicado pelo ponteiro.
+
 
 # Links uteis
 
