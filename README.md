@@ -814,6 +814,17 @@ func main() {
 }
 ```
 
+Segue o mesmo padrão, para ints e floats;
+
+```
+	numbers := []int{1000, 10, 3000, 55, 3, 22}
+
+	fmt.Println(numbers)
+
+	sort.Ints(numbers)
+
+	fmt.Println(numbers)
+```
 
 # Links uteis
 
