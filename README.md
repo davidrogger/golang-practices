@@ -826,6 +826,44 @@ Segue o mesmo padrão, para ints e floats;
 	fmt.Println(numbers)
 ```
 
+# Custom sort
+
+Para usar o metodo que ordena algum slice de um tipo personalizado, como ordenando pelo nome, ou alguma chave especifica, deve-se definir um métodos, que retorne os tipos Len, less e Swap, para o funcionamento do Sort.
+
+```
+
+import (
+	"fmt"
+	"sort"
+)
+
+type User struct {
+	name   string
+	age    int
+	salary float64
+}
+
+type orderByName []User
+
+func (o orderByName) Len() int           { return len(o) } // Sort precisa saber o tamanho da lista que está sendo organizada.
+func (o orderByName) Less(i, j int) bool { return o[i].name < o[j].name }, verifica se o elemento anterior é maior que o próximo elemento na lista.
+func (o orderByName) Swap(i, j int)      { o[i], o[j] = o[j], o[i] } // Troca a posição do primeiro elemento com o segundo.
+
+func main() {
+	users := []User{
+		User{"Denis", 20, 1000},
+		User{"Albert", 25, 1010},
+		User{"Bonas", 33, 2500},
+	}
+
+	fmt.Println(users)
+
+	sort.Sort(orderByName(users))
+
+	fmt.Println(users)
+}
+```
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
