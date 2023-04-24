@@ -892,6 +892,35 @@ func main() {
 }
 ```
 
+# bcrypt
+
+É um modulo, usado para encriptar informações, normalmente usado em senhas;
+
+```
+package main
+
+import "fmt"
+import "golang.org/x/crypto/bcrypt"
+
+func main() {
+	senha := "20julho1980"
+	senhaerrada := "20julho1990"
+
+	sb, err := bcrypt.GenerateFromPassword([]byte(senha), 10)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(string(sb))
+
+	fmt.Println(bcrypt.CompareHashAndPassword(sb, []byte(senha)))
+	fmt.Println(bcrypt.CompareHashAndPassword(sb, []byte(senhaerrada)))
+
+}
+```
+
+Para gerar a senha encryptada, usando a função GenerateFromPassword deve-se passar a senha em forma de slice de bytes, definindo o custo(nível de criptografia) que será usado parar gerar aquela senha.
+Para verificar a autenticidade da senha é usado a função CompareHasAndPassword, recebendo a senha encryptada com a senha em forma de slice the bytes.
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
