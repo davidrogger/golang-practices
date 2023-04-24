@@ -796,6 +796,25 @@ type pessoa struct {
 ```
 Arquivo recebido em json, tem o campo sobrenome, como SegundoNome, porém queremos que seja SobreNome.(apenas exemplo)
 
+# Sort
+
+Usado para ordenar slices, ordenando strings;
+
+```
+import "sort"
+
+func main() {
+	names := []string{"Jonas", "juka", "ananias", "ze", "bety"}
+
+	fmt.Println(names) // Jonas juka ananias ze bety
+
+	sort.Strings(names)
+
+	fmt.Println(names) // Jonas ananias bety juka ze
+}
+```
+
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
