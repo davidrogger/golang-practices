@@ -864,6 +864,34 @@ func main() {
 }
 ```
 
+# Sort: Slice
+
+Usando o metodo Slice de sorte, sem precisar criar novos métodos;
+
+```
+import (
+	"fmt"
+	"sort"
+)
+
+func main() {
+	people := []struct {
+		Name string
+		Age  int
+	}{
+		{"Gopher", 7},
+		{"Alice", 55},
+		{"Vera", 24},
+		{"Bob", 75},
+	}
+	sort.Slice(people, func(i, j int) bool { return people[i].Name < people[j].Name })
+	fmt.Println("By name:", people)
+
+	sort.Slice(people, func(i, j int) bool { return people[i].Age < people[j].Age })
+	fmt.Println("By age:", people)
+}
+```
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
