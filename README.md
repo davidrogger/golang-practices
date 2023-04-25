@@ -976,6 +976,50 @@ func func2() {
 Quando usando go routine é necessário definir quantas rotinas estão para sendo executadas e cada rotina, deve ter um momento de conclusão para então encerrar sua execução. Caso contrário sem definir a quantidade e seu encerramento, a função principal, encerrará sem esperar que as rotinas terminar suas atividades.
 
 
+# Condição de corrida
+
+É quando trabalhando com paralelismo é acessada uma variavel por diferentes funções em parelalo e ela alteram essa variavel, mas essa variavel acaba se tornando volátil e incistente, pois não há um controle sobre o valor que as variaveis vão estar acessando e alterando;
+
+```
+package main
+
+import (
+	"fmt"
+	"runtime"
+	"sync"
+)
+
+func main() {
+
+	fmt.Println("CPUs:", runtime.NumCPU())
+	fmt.Println("Goroutines:", runtime.NumGoroutine())
+
+	contador := 0
+	totaldegoroutines := 1000
+
+	var wg sync.WaitGroup
+	wg.Add(totaldegoroutines)
+
+	for i := 0; i < totaldegoroutines; i++ {
+		go func() {
+			v := contador
+			runtime.Gosched()
+			v++
+			contador = v
+			wg.Done()
+		}()
+		fmt.Println("Goroutines:", runtime.NumGoroutine())
+	}
+
+	wg.Wait()
+	fmt.Println("Goroutines:", runtime.NumGoroutine())
+	fmt.Println("Valor final:", contador)
+
+}
+```
+
+Nessa funcionalidade foram determinada 1000 funções que realizam acesso ao contador, e alteram seu valor de forna incremental, o resultado devido a condição de corrida, não é de 1000, mas sim um valor sem nenhum tipo de controle.
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
