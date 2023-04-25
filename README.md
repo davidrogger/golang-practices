@@ -921,6 +921,15 @@ func main() {
 
 Para gerar a senha encryptada, usando a função GenerateFromPassword deve-se passar a senha em forma de slice de bytes, definindo o custo(nível de criptografia) que será usado parar gerar aquela senha.
 Para verificar a autenticidade da senha é usado a função CompareHasAndPassword, recebendo a senha encryptada com a senha em forma de slice the bytes.
+
+# Concorrência e Paralelismo
+
+Concorrencia é um conceito que se refere à capacidade de um programa executar várias tarefas ao mesmo tempo. Independente da forma como essas tarefas são executadas. Sendo várias tarefas em um único processador, por meio do compartilhamento de tempo (time-sharing), ou a execução de várias tarefas em diferentes processadores ou núcles de CPU por meio do paralelismo.
+
+O paralelismo é uma forma específica de concorrência envolvendo a execução simultânea de várias tarefas em diferentes processadores ou núcleos de CPU ao mesmo tempo.
+
+
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
