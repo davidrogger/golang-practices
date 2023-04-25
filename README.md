@@ -934,6 +934,46 @@ O paralelismo é uma forma específica de concorrência envolvendo a execução 
 
 # Go routines
 
+É usado para definir que uma funcionalidade irá trabalhar de forma assyncrona ao demais itens do código, sendo paralela ao código;
+
+```
+package main
+
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
+var wg = sync.WaitGroup
+
+func main() {
+	wg.Add(2) // define a quantidade de go routines usadas na função.
+
+	go func1()
+	go func2()
+
+	wg.Wait() // Faz com que a função main espere pelas rotinas terminaram para encerrar a função.
+}
+
+func func1() {
+	for i := 0; i < 10; i++ {
+		fmt.Println("func1:", i)
+		time.Sleep(20)
+	}
+	wg.done() // Conclui a rotina
+}
+
+func func2() {
+	for i := 0; i < 10; i++ {
+		fmt.Println("func2:", i)
+		time.Sleep(20)
+	}
+	wg.done()
+}
+```
+
+Quando usando go routine é necessário definir quantas rotinas estão para sendo executadas e cada rotina, deve ter um momento de conclusão para então encerrar sua execução. Caso contrário sem definir a quantidade e seu encerramento, a função principal, encerrará sem esperar que as rotinas terminar suas atividades.
 
 
 # Links uteis
