@@ -1056,6 +1056,39 @@ func main() {
 
 Usando o Lock do mutex, o resultado final do contador será 1000.
 
+# Atomic
+
+Fornece uma maneira segura e eficiente de executar operações atômicas em variáveis compartilhadas entre goroutines. As operações são executadas de forma indivisível, ela ´executada como uma única unidade sem interrupção de outras operações que ocorrem simultaneamente.
+As operações atômica incluem leitura, escrita, incremento, decremento, swap e outras;
+
+```
+package main
+
+import (
+	"fmt"
+	"sync/atomic"
+)
+
+var counter int32
+
+func main() {
+	var wg sync.WaitGroup
+	for i := 0; i < 1000; i++ {
+		wg.Add(1)
+		go func() {
+			atomic.AddInt32(&counter, 1)
+			wg.Done()
+		}()
+	}
+	wg.Wait()
+	fmt.Println("Counter:", counter)
+}
+
+```
+
+No exemplo é usado o método AddInt32, para incrementar o contador. A função recebe um ponteiro para a varáivel que deve ser incrementada e o valor a ser adicionado a essa variável, passando o endereço de memória do counter (`&counter`),  para a função AddInt32 e o valor a ser incrementado.
+Operações atômicas são geralmente mais rápidas e mais leves do que o uso de mutex para proteger variáveis compartilhadas, por evitar a necessidade bloquear e desbloquear para acesso da variável. Porém ela não consegue garantir proteção contra race condition em casos mais complexos.
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
