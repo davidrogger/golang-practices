@@ -928,6 +928,12 @@ Concorrencia é um conceito que se refere à capacidade de um programa executar 
 
 O paralelismo é uma forma específica de concorrência envolvendo a execução simultânea de várias tarefas em diferentes processadores ou núcleos de CPU ao mesmo tempo.
 
+# Thread
+
+É uma sequência de instruções executadas pelo sistema operacional de forma independente, permitindo que programas realizem várias tarefas simultaneamente, dividindo a execução em sequências menores, melhorando o desempenho e a capacidade de resposta de programas, porém isso exige um certo cuidado pois existe um problema de sincronização e condições de corrida, onde duas ou mais threads tentam acessar ou modificar a mesma variável ou recurso ao mesmo tempo.
+
+# Go routines
+
 
 
 # Links uteis
