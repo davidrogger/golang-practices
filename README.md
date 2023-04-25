@@ -1020,6 +1020,42 @@ func main() {
 
 Nessa funcionalidade foram determinada 1000 funções que realizam acesso ao contador, e alteram seu valor de forna incremental, o resultado devido a condição de corrida, não é de 1000, mas sim um valor sem nenhum tipo de controle.
 
+# Mutex
+
+Mutual exclusion, é uma técnica usada na programação concorrente para evitar que várias threads acessem um recurso compartilhado simultaneamente. Ele tem o objetivo de garantir que apenas uma funcionalidade acessa o recurso compartilhado (variavel) em um determinado momento, evitando o race condition;
+
+```
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+var (
+	counter int
+	mutex   sync.Mutex
+)
+
+func main() {
+	var wg sync.WaitGroup
+	for i := 0; i < 1000; i++ {
+		wg.Add(1)
+		go func() {
+			mutex.Lock()
+			counter++
+			mutex.Unlock()
+			wg.Done()
+		}()
+	}
+	wg.Wait()
+	fmt.Println("Counter:", counter)
+}
+
+```
+
+Usando o Lock do mutex, o resultado final do contador será 1000.
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
