@@ -15,13 +15,13 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 	"sync"
 )
 
 var (
 	counter int
 	wg      sync.WaitGroup
-	// mutex   sync.Mutex
 )
 
 func main() {
@@ -30,10 +30,8 @@ func main() {
 
 	for i := 1; i <= routineAmount; i++ {
 		go func() {
-			// mutex.Lock()
-			// runtime.Gosched()
+			runtime.Gosched()
 			counter++
-			// mutex.Unlock()
 			wg.Done()
 		}()
 	}
