@@ -1129,6 +1129,30 @@ fmt.Println(<-c)
 
 Porém o uso de buffer não é uma prática recomendada, a forma mais eficiente é sempre usar o receive and sender sincronizado.
 
+# Canais Direcionais
+
+Canais podem ser direcionais, eles podem ser declarados como canais gerais, ou com uma determinada função ja pré-definida, sendo, um receiver que só recebem informação ou sender só enviam informação;
+
+> send chan<-\
+> receive <-chan
+
+```
+	c := make(chan int)
+	cr := make(<-chan int) // receive
+	cs := make(chan<- int) // send
+
+	fmt.Println("-----")
+	fmt.Printf("c\t%T\n", c)
+	fmt.Printf("cr\t%T\n", cr)
+	fmt.Printf("cs\t%T\n", cs)
+
+	// general to specific converts
+	fmt.Println("-----")
+	fmt.Printf("c\t%T\n", (<-chan int)(c))
+	fmt.Printf("c\t%T\n", (chan<- int)(c))
+```
+
+É possivel converter um canal, geral, para um especifico, mas não um especifico para um geral.
 
 # Links uteis
 
