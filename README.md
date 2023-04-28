@@ -1154,6 +1154,32 @@ Canais podem ser direcionais, eles podem ser declarados como canais gerais, ou c
 
 É possivel converter um canal, geral, para um especifico, mas não um especifico para um geral.
 
+## Channels: Range and Close
+
+Quando iterando um canal é necessário definir um término para ela, caso contrário teremos um erro de deadlock
+
+```
+func main() {
+	c := make(chan int)
+
+	go feedChannel(20, c)
+	printChannel(c)
+}
+
+func feedChannel(qt int, c chan<- int) {
+	for i := 0; i < qt; i++ {
+		c <- i
+	}
+	close(c)
+}
+
+func printChannel(c <-chan int) {
+	for value := range c {
+		fmt.Println("Channel Value:", value)
+	}
+}
+```
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
