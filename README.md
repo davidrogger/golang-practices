@@ -1089,6 +1089,47 @@ func main() {
 No exemplo é usado o método AddInt32, para incrementar o contador. A função recebe um ponteiro para a varáivel que deve ser incrementada e o valor a ser adicionado a essa variável, passando o endereço de memória do counter (`&counter`),  para a função AddInt32 e o valor a ser incrementado.
 Operações atômicas são geralmente mais rápidas e mais leves do que o uso de mutex para proteger variáveis compartilhadas, por evitar a necessidade bloquear e desbloquear para acesso da variável. Porém ela não consegue garantir proteção contra race condition em casos mais complexos.
 
+# Channel
+
+Canais um dos diferenciais do Golang, para fazer sincronização de código, eles nos permitem transmitir valores entre goroutines, coordenando, sincronizando e orquestrando, dessa forma é possivel fazer do jeito certo a sincronização de código concorrente.
+
+
+```
+	c := make(chan int)
+
+	c <- 42
+	fmt.Println(c)
+```
+
+>fatal error: all goroutines are asleep - deadlock!
+
+Quando usando canal, é necessário "trabalhar" de maneira concorrente, nesse caso, a linha em que é inserido o numero 42 ao canal, ele fica sem resposta por não ser uma goroutine, em uma mesma goroute não é possivel realizar duas atividades, ou ela retira ou adiciona.
+
+```
+	c := make(chan int)
+
+	go func() {
+		c <- 42
+	}()
+	fmt.Println(<-c)
+```
+
+Dessa maneira funciona, pois (main é uma goroutine também), temos duas goroutine, uma adicionando ao canal o 42 na função anônima e outra retirando o valor do canal quando usado o print.
+Repetindo, precisamos de uma goroutine para cada ação sobre o canal, nesse caso, uma está adicionando (função anônima) e a outra está retirando (função main com o print)
+
+## Channel: Buffer
+
+Pode-se definir em um canal usando o buffer que não é necessário ao mesmo tempo que alguém está retirando informação ela seja inserida;
+
+```
+c := make(chan int, 1) // declarando o numero 1, não é necessário que ao mesmo tempo que é retirado deve-se inserir
+c <- 42
+fmt.Println(<-c)
+```
+
+Porém o uso de buffer não é uma prática recomendada, a forma mais eficiente é sempre usar o receive and sender sincronizado.
+
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
