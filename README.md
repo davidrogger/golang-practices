@@ -1180,6 +1180,100 @@ func printChannel(c <-chan int) {
 }
 ```
 
+# Channel: Select
+
+Ele é como um switch, onde ele procura por uma condicional, quando encontrado mais que um acertivo, ele escolhe de forma aleatória entre as alternativas.
+
+```
+func main() {
+	a := make(chan int)
+	b := make(chan int)
+	qt := 100
+
+	go feedChannel(qt, a)
+	go feedChannel(qt, b)
+
+	printChannels(qt, a, b)
+}
+
+func feedChannel(qt int, c chan<- int) {
+	for i := 0; i< qt; i++ {
+		c <- i
+	}
+	close(c)
+}
+
+func printChannels(qt int, a <-chan int, b <-chan int) {
+	for i := 0; i < qt; i++ {
+		select {
+			case v := <-a:
+				fmt.Println("Canal A:", v)
+			case v:= <-b:
+				fmt.Println("Canal B:", v)
+		}
+	}
+}
+
+```
+
+Quem pertencer ao canal A, terá o print com a frase Canal A e o B com B.\
+
+Dentro de um select é possivel também enviar ou receber canais;
+
+```
+func main() {
+	c := make(chan int)
+	q := make(chan int)
+	go receiveQuit(c, q)
+	sendChannel(c, q)
+}
+
+func receiveQuit(channel chan int, quit chan int) {
+	for i := 0; i < 50; i++ {
+		fmt.Println("Recebido", <- channel)
+	}
+	quit <- 0
+}
+
+func sendChannel(channel chan int, quit chan int) {
+	counter := 1
+	for {
+		select {
+			case channel <- counter:
+				counter++
+			case <- quit:
+				return
+		}
+	}
+}
+```
+
+Sem usar o close, ele printa até o 50, e quando chega na ultima faixa do canal, ele para.
+
+## Channel: Comma ok
+
+Para verificar se o valor do canal é 0 ou não existe mesmo, pois como ele retorna um zero value;
+
+```
+canal := make(chan int)
+
+go func() {
+	canal <- 0
+	close(canal)
+}()
+
+v, ok := <-canal
+
+fmt.Println(v, ok) // 0, true
+
+v, = <-canal
+
+fmt.Println(v, ok) // 0, false
+```
+
+Primeira vez, ele retira o valor 0 do canal, e mostra na tela, como valor 0 e true, o useja existe o valor 0, e depois ele tira novamente o valor que não existe, sendo o value zero 0 porém é vazio false.
+
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
