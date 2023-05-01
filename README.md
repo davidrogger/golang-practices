@@ -1266,7 +1266,7 @@ v, ok := <-canal
 
 fmt.Println(v, ok) // 0, true
 
-v, = <-canal
+v, ok = <-canal
 
 fmt.Println(v, ok) // 0, false
 ```
