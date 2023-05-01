@@ -1377,6 +1377,28 @@ func workLoad(n int) {
 
 Nesse exemplo, é determinado para 5 go routine trabalharem de forma concorrente, definida na variavel funcoes.
 
+# [Context](https://pkg.go.dev/context)
+
+É usado para realizar comunicação entregue go routines, para encerramento deles, caso uma operação não seja necessário.
+
+- Destaques:
+    - ctx := context.Background
+    - ctx, cancel = context.WithCancel(context.Background)
+    - goroutine: select case ←ctx.Done(): return; default: continua trabalhando.
+    - check ctx.Err();
+    - Tambem tem WithDeadline/Timeout
+- Exemplos (Todd):
+    - Analisando:
+        - Background: https://play.golang.org/p/cByXyrxXUf 
+        - WithCancel: https://play.golang.org/p/XOknf0aSpx
+        - Função Cancel: https://play.golang.org/p/UzQxxhn_fm 
+    - Exemplos práticos:
+        - func WithCancel: https://play.golang.org/p/Lmbyn7bO7e
+        - func WithCancel: https://play.golang.org/p/wvGmvMzIMW 
+        - func WithDeadline: https://play.golang.org/p/Q6mVdQqYTt 
+        - func WithTimeout: https://play.golang.org/p/OuES9sP_yX 
+        - func WithValue: https://play.golang.org/p/8JDCGk1K4P
+
 
 
 # Links uteis
