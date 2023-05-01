@@ -1273,6 +1273,60 @@ fmt.Println(v, ok) // 0, false
 
 Primeira vez, ele retira o valor 0 do canal, e mostra na tela, como valor 0 e true, o useja existe o valor 0, e depois ele tira novamente o valor que não existe, sendo o value zero 0 porém é vazio false.
 
+## Convergência
+
+É o conceito de unir informações de dois canais em um.
+
+```
+func main() {
+	even := make(chan int)
+	odd := make(chan int)
+	converge := make(chan int)
+
+	go send(even, odd)
+	go receive(even, odd, converge)
+
+	for v := range converge{
+		fmt.Println("Convergence Number:", v)
+	}
+}
+
+func send(even, odd chan int) {
+	for i := 0; i < 10; i++ {
+		if i%2 == 0 {
+			even <- i
+		} else {
+			odd <- i
+		}
+	}
+	close(even)
+	close(odd)
+}
+
+func receive(even, odd, converge chan int) {
+	var wge sync.WaitGroup
+	wg.Add(1)
+
+	go func() {
+		for v:= range even {
+			converge <- v
+		}
+		wg.Done()
+	}()
+	wg.Add(1)
+	go func() {
+		for v:= range odd {
+			converge <- v
+		}
+		wg.Done()
+	}()
+	wg.Wait()
+	close(converge)
+}
+
+```
+
+
 
 # Links uteis
 
