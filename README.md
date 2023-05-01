@@ -1326,6 +1326,57 @@ func receive(even, odd, converge chan int) {
 
 ```
 
+## Divergência
+
+É o conceito contrário a convergência, onde tiramos informação de um canal, e quebramos em mais canais, com a finalidade de realizar uma concorrencia entre o trabalho necessário com a informação do canal.
+
+```
+func main() {
+	canal1 := make(chan int)
+	canal2 := make(chan int)
+
+	funcoes := 5
+
+	go send(100, canal1)
+	go other(funcoes, canal1, canal2)
+
+	for v := range canal2 {
+		fmt.Println(v)
+	}
+}
+
+func send(n int, canal chan int) {
+	for i := 0; i < n; i++ {
+		canal <- i
+	}
+	close(canal)
+}
+
+func other(funcoes int, canal1, canal2 chan int) {
+	var wg sync.WaithGroup
+
+	for i := 0; i < funcoes; i++ {
+		wg.Add(1)
+		go func() {
+			for v: range canal1 {
+				canal2 <- workLoad(v)
+			}
+			wg.Done()
+		}()
+	}
+	wg.Wait()
+	close(canal2)
+}
+
+func workLoad(n int) {
+	time.Sleep(time.Millisecon * 1000)
+	return n
+}
+
+```
+
+Nesse exemplo, é determinado para 5 go routine trabalharem de forma concorrente, definida na variavel funcoes.
+
 
 
 # Links uteis
