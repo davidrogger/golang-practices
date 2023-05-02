@@ -1399,7 +1399,65 @@ Nesse exemplo, é determinado para 5 go routine trabalharem de forma concorrente
         - func WithTimeout: https://play.golang.org/p/OuES9sP_yX 
         - func WithValue: https://play.golang.org/p/8JDCGk1K4P
 
+# Tratamento de erros
 
+No desenvolvimetno de go foi definido que não usar exceções seria uma forma mais organizada de tratar os erros.\
+Por tanto é interessante criar o hábito de lidar com os erros imediantamente.
+
+## Verificando erros
+
+Normalmente uma função em go, retorna o resultado ou seu erro, por isso o tratamento é realizando recebendo dois valores;
+
+```
+v, err := os.Open("no-file.txt")
+if err != nil {
+	fmt.Println("err happend", err)
+}
+```
+
+Nessa funcionalidade, estamos abrindo um arquivo, e caso ele não exista, ou se enquadre dentro de alguma regra de erro da função, ele deve retornar o erro, e caso tudo ocorra conforme deve, ele retorn nil, que representa vazio/nada, então se ele for diferente de vazio, ocorreu um erro, então tratamos esse erro.
+
+>- Recomendação: use log.
+>- Código: 
+>    - 1. fmt.Println
+>    - 2. log.Println
+>    - 3. log.SetOutput
+>    - 4. log.Fatalln
+>    - 5. log.Panicln
+>    - 6. panic
+>- panic: http://godoc.org/builtin#panic
+
+# Recouver
+
+```
+func main() {
+	f()
+	fmt.Println("Returned normally from f.")
+}
+
+func f() {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("Recovered in f", r)
+		}
+	}()
+	fmt.Println("Calling g.")
+	g(0)
+	fmt.Println("Returned normally from g.")
+}
+
+func g(i int) {
+	if i > 3 {
+		fmt.Println("Panicking!")
+		panic(fmt.Sprintf("%v", i))
+	}
+	defer fmt.Println("Defer in g", i)
+	fmt.Println("Printing in g", i)
+	g(i + 1)
+}
+```
+
+É demonstrado o funcionamento do panick, que quando acionado, realiza todos defers da função, ele não para a função completamente. E é usado o recouver para lidar com o panic.
 
 # Links uteis
 
