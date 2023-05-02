@@ -1614,8 +1614,19 @@ func g(i int) {
 		// http://golang.org/src/pkg/encoding/json/decode.go
 		```
 
+# Documentações
 
-#
+## go doc
+
+Usado para visualizar a documentação do go, no terminal de comando, basta digitar go doc [package] essa parte da func, seria o nome do pacote que deseja ler a documentação, ela é pouco usada, pois normalmente a visualização no terminal, é desajeitada.
+## godoc
+
+Ele segue a mesma linha que o go doc, mas com ele é possivel a visualização pelo navegador usando o comando: godoc -http=:PORT, podemos definir a porta que quisermos, desde que ela não esteja sendo usada por outra porta; `godoc -http=:8080`
+
+# godoc.org
+
+É um site para "deploy" de uma documentação que foi criada no github. Onde basta copiar o caminho do pacote no github.
+
 
 # Links uteis
 
