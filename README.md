@@ -1627,6 +1627,52 @@ Ele segue a mesma linha que o go doc, mas com ele é possivel a visualização p
 
 É um site para "deploy" de uma documentação que foi criada no github. Onde basta copiar o caminho do pacote no github.
 
+# Escrevendo documentação
+
+A documentação no go é acoplada ao código, evoluindo juntamente com ele, todo comentário realizado junto ao código gera a documentação.\
+- Para documentar um tipo, uma variável, uma constante, ou um pacote, escreva um comentário imediatamente antes de sua declaração, sem linhas em branco
+- Comece a frase com o nome do elemento. No caso de pacotes, a primeira linha aparece no "package list."
+- Caso esteja escrevendo bastante documentação, utilize um arquivo doc.go. Exemplo: package fmt.
+- A melhor parte dessa abordagem minimalista é que é super fácil de usar. Como resultado, muita coisa em Go, incluindo toda a standard library, já segue estas convenções.
+- Outro exemplo: errors package.
+
+> main.go
+```
+// Package escrevendo ilustra como escrever documentação.
+package escrevendo
+
+// x é um número inútil.
+const X = 10
+
+// Doc é um monte de coisa nenhuma.
+func Doc() {
+	fmt.Println("Essa função não faz nada.")
+}
+
+// doc2 começa com letra minúscula
+func doc2() {
+	fmt.Println("Essa função não faz nada.")
+}
+
+// Doc3 é a última!
+func Doc3() {
+	fmt.Println("Essa função não faz nada. X é:", x)
+}
+```
+
+>doc.go
+```
+/*
+	Package escrevendo ilustra como escrever documentação.
+	É apenas exemplo.
+*/
+package escrevendo
+```
+
+Ao rodar godoc -http=:8080, será gerado a documentação para http.\
+
+Nota, que as funções são escritas com a letra inicial maiuscula, para ser exportavel e visivel para documentação, a função com letra minusculo, só pode ser usada internamente no package pois ela não é exportável.
+
 
 # Links uteis
 
