@@ -1800,6 +1800,14 @@ func BenchmarkMySum(b *testing.B) {
 ```
 É usado o for, pois o benchmark, realiza a execução da função diversas vezes, para definir o tempo da execução e retornar o tempo de execução.
 
+# Cobertura
+
+Define quais campos da funcionalidade foram testados.
+
+- go test -cover <- retorna a cobertura no terminal
+- go test -coverprofile c.out <- salva um arquivo com a cobertura
+- go tool cover -html=c.out <- abre no navegador
+- go tool cover -h <- retorna documentação sobre o cover
 
 
 # Links uteis
