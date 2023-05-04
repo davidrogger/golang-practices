@@ -12,6 +12,7 @@ func AppRoutes(router *gin.Engine) *gin.RouterGroup {
 	route := router.Group("/v1")
 	{
 		route.GET("/tweets", tweetController.FindAll)
+		route.POST("/tweet", tweetController.Create)
 	}
 
 	return route
