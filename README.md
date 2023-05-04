@@ -1711,6 +1711,33 @@ func TestMySum(t *testing.T) {
 }
 ```
 
+# Testes & Benchmark: Em tabela
+
+Para realizar testes em serie;
+
+```
+import "testing"
+
+type test struct {
+	parameters  []int
+	expected 		int
+}
+
+func TestMySums(t *testing.T) {
+	tests := []test{
+		test{[]int{3, 3, 2}, 8},
+		test{[]int{10, 5, 6}, 21},
+		test{[]int{150, 100, 66}, 216},
+	}
+
+	for _, s := range tests {
+		result := mySum(s.parameters...)
+		if result != s.expected {
+			t.Erro("Expcted:", s.expected, "But Got:", result)
+		}
+	}
+}
+```
 
 
 # Links uteis
