@@ -13,6 +13,7 @@ func AppRoutes(router *gin.Engine) *gin.RouterGroup {
 	{
 		route.GET("/tweets", tweetController.FindAll)
 		route.POST("/tweet", tweetController.Create)
+		route.DELETE("/tweet/:id", tweetController.Delete)
 	}
 
 	return route
