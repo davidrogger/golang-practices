@@ -1673,7 +1673,7 @@ Ao rodar godoc -http=:8080, será gerado a documentação para http.\
 
 Nota, que as funções são escritas com a letra inicial maiuscula, para ser exportavel e visivel para documentação, a função com letra minusculo, só pode ser usada internamente no package pois ela não é exportável.
 
-# Testes & Benchmarks
+# Testes
 
 Testes em go;
 
@@ -1711,7 +1711,7 @@ func TestMySum(t *testing.T) {
 }
 ```
 
-# Testes & Benchmark: Em tabela
+# Testes: Em tabela
 
 Para realizar testes em serie;
 
@@ -1779,6 +1779,26 @@ func ExampleMySum() {
 - `gofmt`: use o comando no terminal para realizar a formatação do arquivo, caso não use o editor como o vscode que realiza a formatação e indica erros de formatação. É possivel usar o comando `gofmt -w ./...`, para realizar a formatação de todos arquivos e subarquivos apartir da pasta que foi realizado o comando.
 - `go vet`: Reporta erros quando encontrados.
 - `golint`: Busca por melhorias no código
+
+# Benchmark
+
+São testes de performance;
+
+- Arquivo: _test.go
+- BET(Benchmark, examples, testes), bet vem do inglês que significa aposta, se esse código é apostavel, quer dizer que ele passou por Ben.. exam... e testes...
+- Sintaxe: `func BenchmarkFunc (b *testing.B) { ... b.N ... }`
+- go test -bench . (ponto para testar todas funções)
+- go test -bench NomeDaFunc (Somente a Fun em específico)
+- go help testflag (retorna documentação sobre os testes)
+
+```
+func BenchmarkMySum(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		MySum(10, 10)
+	}
+}
+```
+É usado o for, pois o benchmark, realiza a execução da função diversas vezes, para definir o tempo da execução e retornar o tempo de execução.
 
 
 
