@@ -1687,7 +1687,7 @@ Testes em go;
 
 > mySum.go
 ```
-package mySum
+package MySum
 
 func MySum(n ...int) int {
 	total := 0
@@ -1699,7 +1699,7 @@ func MySum(n ...int) int {
 ```
 > mySum_test.go
 ```
-package mySum
+package MySum
 import "testing"
 
 func TestMySum(t *testing.T) {
@@ -1731,7 +1731,7 @@ func TestMySums(t *testing.T) {
 	}
 
 	for _, s := range tests {
-		result := mySum(s.parameters...)
+		result := MySum(s.parameters...)
 		if result != s.expected {
 			t.Erro("Expcted:", s.expected, "But Got:", result)
 		}
@@ -1739,6 +1739,40 @@ func TestMySums(t *testing.T) {
 }
 ```
 
+A vantagem de realizar testes como exemplo é a possibilidade de gerar a documentação reaproveitando o arquivo;
+
+
+# Testes como exemplos
+
+- Outra maneira é fazer testes como exemplos.
+- Estes exemplos são os mesmos que aparecem na documentação.
+- Para exemplos o formato é "func ExampleFuncao()"
+- Deve haver um comentário "// Output: resultado", que é o que será testado
+- Para visualizar seu exemplo na documentação, fazemos o de sempre:
+    - godoc -http :8080
+- Tanto para testes quanto para exemplos podemos utilizar: go test ./...
+- Mais: https://blog.golang.org/examples
+
+Testes um por um;
+```
+func ExampleMySum() {
+	fmt.Println(MySum(3, 3, 3))
+	// Output: 9
+}
+```
+
+Testes sequenciais;
+```
+func ExampleMySum() {
+	fmt.Println(MySum(3, 3, 3))
+	fmt.Println(MySum(3, 4, 3))
+	fmt.Println(MySum(3, 6, 6))
+	// Output:
+	// 9
+	// 10
+	// 15
+}
+```
 
 # Links uteis
 
