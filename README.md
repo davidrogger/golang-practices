@@ -1774,6 +1774,14 @@ func ExampleMySum() {
 }
 ```
 
+# Golint
+
+- `gofmt`: use o comando no terminal para realizar a formatação do arquivo, caso não use o editor como o vscode que realiza a formatação e indica erros de formatação. É possivel usar o comando `gofmt -w ./...`, para realizar a formatação de todos arquivos e subarquivos apartir da pasta que foi realizado o comando.
+- `go vet`: Reporta erros quando encontrados.
+- `golint`: Busca por melhorias no código
+
+
+
 # Links uteis
 
 - [Documentação Go](https://go.dev/doc/)
