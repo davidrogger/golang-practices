@@ -1673,6 +1673,45 @@ Ao rodar godoc -http=:8080, será gerado a documentação para http.\
 
 Nota, que as funções são escritas com a letra inicial maiuscula, para ser exportavel e visivel para documentação, a função com letra minusculo, só pode ser usada internamente no package pois ela não é exportável.
 
+# Testes & Benchmarks
+
+Testes em go;
+
+- Devem terminar com o _test.go
+- Está na mesma package que o código que está sendo testado.
+- As funções de teste, começam com o nome `func Test*` e tem como argumento *testing.T que é importado da biblioteca de testing.
+- Usamos o t.Error(), que é importada do testing, para verificação de acertividade.
+- Para todar testes:
+	- go test toda todos os testes
+	- go test -v roda todos os testes um a um, de forma detalhada.
+
+> mySum.go
+```
+package mySum
+
+func MySum(n ...int) int {
+	total := 0
+	for _, v := range n {
+		total += v
+	}
+	return total
+}
+```
+> mySum_test.go
+```
+package mySum
+import "testing"
+
+func TestMySum(t *testing.T) {
+	result := mySum(1, 1, 1)
+	expected := 3
+	if result != expected {
+		t.Error("Expected:", expected, "But Got:", result)
+	}
+}
+```
+
+
 
 # Links uteis
 
